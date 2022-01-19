@@ -1,0 +1,43 @@
+body {
+    background-color: #121212;
+}
+
+#main-background-img {
+    background-image: url('/images/main-background-img.jpg');
+    height: 1500px;
+    width: 100%;
+    background-size: cover;
+}
+
+#title-bar {
+    /* overflow: auto; */
+    background-color: #121212;
+    height: 1500px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-family: 'Roboto Mono', sans-serif;
+    color: #03DAC6;
+    text-align: center;
+}
+
+#my-name {
+    display: inline;
+}
+
+#blinking-text {
+    animation: animate 1s linear infinite;
+    display: inline;
+}
+
+@keyframes animate{
+    0%{
+      opacity: 0;
+    }
+    50%{
+      opacity: 0.7;
+    }
+    100%{
+      opacity: 0;
+    }
+  }
