@@ -23,6 +23,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    <!-- jQuery Dropdowns/accordions -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
 </head>
 <body>
     <!-- START CONSISTENT CONTENT -->
@@ -30,7 +36,7 @@
     <div class="background-img" id="main-background-img">
         <div class="background" id="background-color">
             <div class="text-holder" id="title-bar">
-                <h1 id="my-name">MaxwellMolden@my-site:~$ <div id="blinking-text">|</div></h1>
+                <h1 class="bash-text" id="my-name">MaxwellMolden@my-site:~/main $ <div id="blinking-text">|</div></h1>
             </div>
             <nav class="navbar navbar-expand navbar-custom" id="main-nav-bar">
                 <div class="container-fluid">
@@ -41,8 +47,8 @@
                                 <!-- <a href="#" class="nav-link active" aria-current="page">
                                     HOME
                                 </a> -->
-                                <button type="button" class="nav-link active" id="button-home" onclick="showContent('home-template')">
-                                    HOME
+                                <button type="button" class="nav-link active" id="button-main" onclick="showContent('main-template')">
+                                    MAIN
                                 </button>
                             </li>
                             <li class="nav-item">
@@ -56,8 +62,8 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <button type="button" class="nav-link active" id="button-skill1" onclick="showContent('skills-skill1-template')">
-                                            SKILL 1
+                                        <button type="button" class="nav-link active" id="button-skill1" onclick="showContent('skills-software-template')">
+                                            Software
                                         </button>
                                     </li>
                                     <li>
@@ -76,53 +82,91 @@
                     </div>
                 </div>
             </nav>
+            <div id="main-page">
+
+            </div>
         </div>
     </div>
 
     <!-- END CONSISTENT CONTENT -->
 
-    <div id="main-div">
 
-    </div>
 
     <!-- START VARIABLE CONTENT -->
 
-    <template id="home-template">
-        <div>HOME PAGE</div>
+    <template id="main-template">
+
     </template>
 
     <template id="socials-template">
-        <div>SOCIALS PAGE</div>
+            
     </template>
 
-    <template id="skills-skill1-template">
-        <div>SKILL1 PAGE</div>
+    <template id="skills-software-template">
+        <div id="software-accordion">
+            <h3>Programming Languages</h3>
+            <h3>Other Software</h3>
+        </div>
     </template>
 
     <template id="skills-skill2-template">
-        <div>SKILL2 PAGE</div>
+
     </template>
 
     <template id="aboutme-template">
-        <div>ABOUT ME PAGE</div>
+
     </template>
 
     <!-- END VARIABLE CONTENT -->
 </body>
 <script>
+
+    // holds text to edit the bash prompt based on what current navbar tab you are on
+    var bash_prompt_text = {
+        "main-template" : 'MaxwellMolden@my-site:~/main $ <div id="blinking-text">|</div>',
+        "socials-template" : 'MaxwellMolden@my-site:~/socials $ <div id="blinking-text">|</div>',
+        "skills-software-template" : 'MaxwellMolden@my-site:~/software-skills $ <div id="blinking-text">|</div>',
+        "skills-skill2-template" : 'MaxwellMolden@my-site:~/skill2-skills $ <div id="blinking-text">|</div>',
+        "aboutme-template" : 'MaxwellMolden@my-site:~/about-me $ <div id="blinking-text">|</div>',
+    };
+
+    // when the page loads the main tab will load with the appropriate bash text
     $( document ).ready(function() {
-        var main_div = document.getElementById('main-div');
-        var home_template = document.getElementById('home-template');
-        var clon = home_template.content.cloneNode(true);
+        // get main div and the main template
+        var main_div = document.getElementById('main-page');
+        var main_template = document.getElementById('main-template');
+        // clnoe the node of main tempalte
+        var clon = main_template.content.cloneNode(true);
+        // append main template to main div
         main_div.appendChild(clon);
     });
 
+    // when changing tabs the show content func is called to display that template as well as to edit the bash prompt with the edit bash prompt func
     function showContent(tempalte_id) {
-        var main_div = document.getElementById('main-div');
+        // get main div and clear inner html in order to be able to add new content/templates
+        var main_div = document.getElementById('main-page');
         main_div.innerHTML='';
+        // get the template to show and create a node/clone
         var template_to_show = document.getElementById(tempalte_id);
         var clon = template_to_show.content.cloneNode(true);
+        // append the tmepalte
         main_div.appendChild(clon)
+        // now update b ash prompt
+        editBashPrompt(tempalte_id);
     }
+
+    // edit bash prompt based on current nav bar tab selection
+    function editBashPrompt(template_id) {
+        // get current bashpromp text and reset it to be what is appropriate
+        var main_bash_prompt = document.getElementById("my-name");
+        main_bash_prompt.innerHTML = bash_prompt_text[template_id];        
+    }
+
+    $( function() {
+        $( "#software-accordion" ).accordion({
+            collapsible: true
+        });
+    });
+
 </script>
 </html>
