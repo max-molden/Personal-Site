@@ -36,11 +36,12 @@ body {
 }
 
 #blinking-text {
-    animation: animate 1s linear infinite;
+    background-color: #BB86FC;
+    animation: blinking 1s linear infinite;
     display: inline;
 }
 
-@keyframes animate{
+@keyframes blinking{
     0%{
       opacity: 0;
     }
@@ -69,4 +70,27 @@ body {
     color: black;
     /* display: flex; */
     justify-content: space-around;
+}
+
+.nav-link, .nav-link:link, .nav-link:visited {
+    text-decoration: none;
+    color: #000000 !important;
+}
+
+.nav-link:hover {
+    text-decoration: none;
+    color: #FFFFFF !important;
+}
+
+.dropdown-menu {
+    background-color: #BB86FC !important;
+}
+
+.dropdown-item {
+    color: #000000 !important;
+    background-color: #BB86FC !important;
+}
+
+.dropdown-item:hover {
+    color: #FFFFFF !important;
 }
