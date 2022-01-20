@@ -25,6 +25,8 @@
 
 </head>
 <body>
+    <!-- START CONSISTENT CONTENT -->
+
     <div class="background-img" id="main-background-img">
         <div class="background" id="background-color">
             <div class="text-holder" id="title-bar">
@@ -36,27 +38,39 @@
                     <div class="collapse navbar-collapse" id="nav-bar-options">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a href="#" class="nav-link active" aria-current="page">
+                                <!-- <a href="#" class="nav-link active" aria-current="page">
                                     HOME
-                                </a>
+                                </a> -->
+                                <button type="button" class="nav-link active" id="button-home" onclick="showContent('home-template')">
+                                    HOME
+                                </button>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <button type="button" class="nav-link active" id="button-socials" onclick="showContent('socials-template')">
                                     SOCIALS
-                                </a>
+                                </button>
                             </li>
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     SKILLS
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a href="#" class="dropdown-item">FUCK YOU</a></li>
+                                    <li>
+                                        <button type="button" class="nav-link active" id="button-skill1" onclick="showContent('skills-skill1-template')">
+                                            SKILL 1
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="nav-link active" id="button-skill2" onclick="showContent('skills-skill2-template')">
+                                            SKILL 2
+                                        </button>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <button type="button" class="nav-link active" id="button-aboutme" onclick="showContent('aboutme-template')">
                                     ABOUT ME
-                                </a>
+                                </button>
                             </li>
                         </ul>
                     </div>
@@ -64,5 +78,51 @@
             </nav>
         </div>
     </div>
+
+    <!-- END CONSISTENT CONTENT -->
+
+    <div id="main-div">
+
+    </div>
+
+    <!-- START VARIABLE CONTENT -->
+
+    <template id="home-template">
+        <div>HOME PAGE</div>
+    </template>
+
+    <template id="socials-template">
+        <div>SOCIALS PAGE</div>
+    </template>
+
+    <template id="skills-skill1-template">
+        <div>SKILL1 PAGE</div>
+    </template>
+
+    <template id="skills-skill2-template">
+        <div>SKILL2 PAGE</div>
+    </template>
+
+    <template id="aboutme-template">
+        <div>ABOUT ME PAGE</div>
+    </template>
+
+    <!-- END VARIABLE CONTENT -->
 </body>
+<script>
+    $( document ).ready(function() {
+        var main_div = document.getElementById('main-div');
+        var home_template = document.getElementById('home-template');
+        var clon = home_template.content.cloneNode(true);
+        main_div.appendChild(clon);
+    });
+
+    function showContent(tempalte_id) {
+        var main_div = document.getElementById('main-div');
+        main_div.innerHTML='';
+        var template_to_show = document.getElementById(tempalte_id);
+        var clon = template_to_show.content.cloneNode(true);
+        main_div.appendChild(clon)
+    }
+</script>
 </html>
