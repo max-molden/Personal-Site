@@ -39,7 +39,7 @@ body {
 
 #blinking-text {
     background-color: #BB86FC;
-    animation: blinking 1s linear infinite;
+    animation: blinking 1.1s linear infinite;
     display: inline;
 }
 
