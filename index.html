@@ -94,73 +94,41 @@
     <!-- START VARIABLE CONTENT -->
 
     <template id="main-template">
-        <p>Date: <input type="text" id="datepicker"></p>
-        <div id="slider"></div>
+
+
+
     </template>
 
     <template id="socials-template">
             
+
+
     </template>
 
     <template id="skills-software-template">
         <div id="software-accordion">
-            <div id="accordion">
-                <h3>Section 1</h3>
-                <div>
-                  <p>
-                  Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                  ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                  amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                  odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-                  </p>
-                </div>
-                <h3>Section 2</h3>
-                <div>
-                  <p>
-                  Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-                  purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-                  velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-                  suscipit faucibus urna.
-                  </p>
-                </div>
-                <h3>Section 3</h3>
-                <div>
-                  <p>
-                  Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-                  Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-                  ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-                  lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-                  </p>
-                  <ul>
-                    <li>List item one</li>
-                    <li>List item two</li>
-                    <li>List item three</li>
-                  </ul>
-                </div>
-                <h3>Section 4</h3>
-                <div>
-                  <p>
-                  Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-                  et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-                  faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-                  mauris vel est.
-                  </p>
-                  <p>
-                  Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-                  Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                  inceptos himenaeos.
-                  </p>
-                </div>
-              </div>
+            <h3 class="software-accordion-header">Python</h3>
+            <div>
+                <p>Python</p>
+            </div>
+            <h3 class="software-accordion-header">C++</h3>
+            <div>
+                <p>C++</p>
+            </div>
         </div>
     </template>
 
     <template id="skills-skill2-template">
-        <div id="slider"></div>
+
+
 
     </template>
 
+
+
     <template id="aboutme-template">
+
+
 
     </template>
 
@@ -182,24 +150,33 @@
         // get main div and the main template
         var main_div = document.getElementById('main-page');
         var main_template = document.getElementById('main-template');
+
         // clnoe the node of main tempalte
         var clon = main_template.content.cloneNode(true);
+
         // append main template to main div
         main_div.appendChild(clon);
     });
 
     // when changing tabs the show content func is called to display that template as well as to edit the bash prompt with the edit bash prompt func
-    function showContent(tempalte_id) {
+    function showContent(template_id) {
         // get main div and clear inner html in order to be able to add new content/templates
         var main_div = document.getElementById('main-page');
         main_div.innerHTML='';
+
         // get the template to show and create a node/clone
-        var template_to_show = document.getElementById(tempalte_id);
+        var template_to_show = document.getElementById(template_id);
         var clon = template_to_show.content.cloneNode(true);
+
         // append the tmepalte
         main_div.appendChild(clon)
+
+        // once the template is loaded we need to load any jquery stuff
+        // for example, the accordion on the software skills page needs to be initialzed now
+        initjQuery(template_id);
+
         // now update b ash prompt
-        editBashPrompt(tempalte_id);
+        editBashPrompt(template_id);
     }
 
     // edit bash prompt based on current nav bar tab selection
@@ -209,17 +186,21 @@
         main_bash_prompt.innerHTML = bash_prompt_text[template_id];        
     }
 
-    $( function() {
-        $( "#accordion" ).accordion();
-    });
-
-    $( function() {
-        $( "#datepicker" ).datepicker();
-    });
-
-    $( function() {
-        $( "#slider" ).slider();
-    });
+    // load jqauery for specific templates
+    function initjQuery(template_id) {
+        switch (template_id) {
+            case 'skills-software-template':
+                var icons = {
+                    header: "ui-icon-triangle-1-e",
+                    activeHeader: "ui-icon-triangle-1-s"
+                };
+                $('#software-accordion').accordion({
+                    active: false,
+                    collapsible: true,
+                    icons: icons,
+                });
+        }
+    }
 
 </script>
 </html>
