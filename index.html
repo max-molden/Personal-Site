@@ -106,14 +106,28 @@
     </template>
 
     <template id="skills-software-template">
-        <div id="software-accordion">
-            <h3 class="software-accordion-header">Python</h3>
+        <div class="software-accordion" id="python-acc">
+            <h3 class="software-accordion-header"><img src="/images/pythonlogo.png" alt="Python Logo"> Python</h3>
             <div>
-                <p>Python</p>
+                <p>
+                    Python Stuff
+                </p>
             </div>
-            <h3 class="software-accordion-header">C++</h3>
+        </div>
+        <div class="software-accordion" id="cpp-acc">
+            <h3 class="software-accordion-header"><img src="/images/cpplogo.svg" alt="C++ Logo"> C++</h3>
             <div>
-                <p>C++</p>
+                <p>
+                    C++ Stuff
+                </p>
+            </div>
+        </div>
+        <div class="software-accordion" id="c-acc">
+            <h3 class="software-accordion-header"><img src="/images/clogo.png" alt="C Logo"> C</h3>
+            <div>
+                <p>
+                    C Stuff
+                </p>
             </div>
         </div>
     </template>
@@ -194,7 +208,17 @@
                     header: "ui-icon-triangle-1-e",
                     activeHeader: "ui-icon-triangle-1-s"
                 };
-                $('#software-accordion').accordion({
+                $('.software-accordion#python-acc').accordion({
+                    // active: false,
+                    collapsible: true,
+                    icons: icons,
+                });
+                $('.software-accordion#cpp-acc').accordion({
+                    active: false,
+                    collapsible: true,
+                    icons: icons,
+                });
+                $('.software-accordion#c-acc').accordion({
                     active: false,
                     collapsible: true,
                     icons: icons,
