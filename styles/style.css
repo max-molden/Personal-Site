@@ -160,3 +160,7 @@ body {
     background-image: url(http://jqueryui.com/favicon.ico);
     background-repeat: repeat;
 } */
+
+#reachme h2 {
+    color: white;
+}
