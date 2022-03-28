@@ -1,0 +1,54 @@
+#reachme {
+    text-align: center;
+    padding-top: 16%;
+}
+
+#reachme h2 {
+    color: #10d6d6;
+}
+
+.contact-title, #contact-email {
+    color: #10d6d6;
+}
+
+.contact-title {
+    padding-top: 3%;
+}
+
+#findme {
+    text-align: center;
+    padding-top: 3%;
+}
+
+#findme h2 {
+    color: #10d6d6;
+}
+
+#social-medias ul {
+    color: #10d6d6;
+    list-style-type: none;
+}
+
+#social-medias a {
+    text-decoration: none;
+}
+
+#twitter {
+    color: #1DA1F2;
+    list-style-type: none;
+}
+
+#instagram {
+    color: #E1306C;
+    list-style-type: none;
+}
+
+#linkedin {
+    color: #0077b5;
+    list-style-type: none;
+}
+
+#github {
+    color: white;
+    list-style-type: none;
+}
