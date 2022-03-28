@@ -91,8 +91,17 @@
 
             <!-- START VARIABLE CONTENT -->
 
-            <div id="main-div">
-
+            <div id="socials-div">
+            
+                <div id="reachme">
+                    <h2>
+                        How to reach me:
+                    </h2>
+                </div>
+                <div id="findme">
+        
+                </div>
+        
             </div>
 
             <!-- END VARIABLE CONTENT -->
@@ -100,18 +109,17 @@
         </div>
     </div>
 
-    <!-- END CONSISTENT CONTENT -->
+    <!-- END CONSISTENT CONTENT --> 
 
 </body>
 <script>
-
     // holds text to edit the bash prompt based on what current navbar tab you are on
     var bash_prompt_text = {
-        "main-template" : 'MaxwellMolden@my-site:~/main $ <div id="blinking-text">|</div>',
-        "socials-template" : 'MaxwellMolden@my-site:~/socials $ <div id="blinking-text">|</div>',
-        "skills-software-template" : 'MaxwellMolden@my-site:~/software-skills $ <div id="blinking-text">|</div>',
-        "skills-skill2-template" : 'MaxwellMolden@my-site:~/skill2-skills $ <div id="blinking-text">|</div>',
-        "aboutme-template" : 'MaxwellMolden@my-site:~/about-me $ <div id="blinking-text">|</div>',
+        "main" : 'MaxwellMolden@my-site:~/main $ <div id="blinking-text">|</div>',
+        "socials" : 'MaxwellMolden@my-site:~/socials $ <div id="blinking-text">|</div>',
+        "skill1" : 'MaxwellMolden@my-site:~/software-skills $ <div id="blinking-text">|</div>',
+        "skill2" : 'MaxwellMolden@my-site:~/skill2-skills $ <div id="blinking-text">|</div>',
+        "aboutme" : 'MaxwellMolden@my-site:~/about-me $ <div id="blinking-text">|</div>',
     };
 
     // edit bash prompt based on current nav bar tab selection
@@ -119,7 +127,11 @@
         // get current bashpromp text and reset it to be what is appropriate
         var main_bash_prompt = document.getElementById("my-name");
         main_bash_prompt.innerHTML = bash_prompt_text[template_id];        
-    }
+    };
 
+    $( document ).ready(function() {
+        // edit bash
+        editBashPrompt('socials')
+    });
 </script>
 </html>

@@ -1,0 +1,53 @@
+
+#skills-software-template {
+    color: #BB86FC;
+    padding-top: 1%;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.software-accordion#python-acc {
+    padding-top: 2%;
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+    /* border: red 3px solid; */
+}
+.software-accordion#cpp-acc, .software-accordion#c-acc {
+    /* padding-top: 2%; */
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+    /* border: red 3px solid; */
+}
+
+.software-accordion .ui-accordion-header {
+    background-color: #BB86FC;
+    /* border: red 1px solid; */
+    color: green;
+}
+
+.software-accordion .ui-accordion-content {
+    background-color: #BB86FC;
+    color: blue;
+}
+
+.software-accordion-header img {
+    height: 30px;
+    width: auto;
+}
+
+/* ICON CLASSES */
+/* http://jsfiddle.net/hAL5P/ */
+/* #software-accordion .jquery-icon {
+    background-image: url('/images/pythonlogo.png');
+    background-repeat: repeat;
+    background-size: 25px;
+    width: 20px;
+    height: 20px;
+}
+
+#software-accordion .jqueryui-icon {
+    background-image: url(http://jqueryui.com/favicon.ico);
+    background-repeat: repeat;
+} */

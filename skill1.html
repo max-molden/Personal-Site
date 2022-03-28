@@ -12,6 +12,7 @@
 
     <!-- css -->
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/skill1.css">
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -91,7 +92,32 @@
 
             <!-- START VARIABLE CONTENT -->
 
-            <div id="main-div">
+            <div id="skill1-div">
+
+                <div class="software-accordion" id="python-acc">
+                    <h3 class="software-accordion-header"><img src="/images/pythonlogo.png" alt="Python Logo"> Python</h3>
+                    <div>
+                        <p>
+                            Python Stuff
+                        </p>
+                    </div>
+                </div>
+                <div class="software-accordion" id="cpp-acc">
+                    <h3 class="software-accordion-header"><img src="/images/cpplogo.svg" alt="C++ Logo"> C++</h3>
+                    <div>
+                        <p>
+                            C++ Stuff
+                        </p>
+                    </div>
+                </div>
+                <div class="software-accordion" id="c-acc">
+                    <h3 class="software-accordion-header"><img src="/images/clogo.png" alt="C Logo"> C</h3>
+                    <div>
+                        <p>
+                            C Stuff
+                        </p>
+                    </div>
+                </div>
 
             </div>
 
@@ -104,14 +130,13 @@
 
 </body>
 <script>
-
     // holds text to edit the bash prompt based on what current navbar tab you are on
     var bash_prompt_text = {
-        "main-template" : 'MaxwellMolden@my-site:~/main $ <div id="blinking-text">|</div>',
-        "socials-template" : 'MaxwellMolden@my-site:~/socials $ <div id="blinking-text">|</div>',
-        "skills-software-template" : 'MaxwellMolden@my-site:~/software-skills $ <div id="blinking-text">|</div>',
-        "skills-skill2-template" : 'MaxwellMolden@my-site:~/skill2-skills $ <div id="blinking-text">|</div>',
-        "aboutme-template" : 'MaxwellMolden@my-site:~/about-me $ <div id="blinking-text">|</div>',
+        "main" : 'MaxwellMolden@my-site:~/main $ <div id="blinking-text">|</div>',
+        "socials" : 'MaxwellMolden@my-site:~/socials $ <div id="blinking-text">|</div>',
+        "skill1" : 'MaxwellMolden@my-site:~/software-skills $ <div id="blinking-text">|</div>',
+        "skill2" : 'MaxwellMolden@my-site:~/skill2-skills $ <div id="blinking-text">|</div>',
+        "aboutme" : 'MaxwellMolden@my-site:~/about-me $ <div id="blinking-text">|</div>',
     };
 
     // edit bash prompt based on current nav bar tab selection
@@ -119,7 +144,35 @@
         // get current bashpromp text and reset it to be what is appropriate
         var main_bash_prompt = document.getElementById("my-name");
         main_bash_prompt.innerHTML = bash_prompt_text[template_id];        
-    }
+    };
+
+    
+    $( document ).ready(function() {
+        // jquery for accordions
+        var icons = {
+        header: "ui-icon-triangle-1-e",
+        activeHeader: "ui-icon-triangle-1-s"
+        };
+        $('.software-accordion#python-acc').accordion({
+            // active: false,
+            collapsible: true,
+            icons: icons,
+        });
+        $('.software-accordion#cpp-acc').accordion({
+            active: false,
+            collapsible: true,
+            icons: icons,
+        });
+        $('.software-accordion#c-acc').accordion({
+            active: false,
+            collapsible: true,
+            icons: icons,
+        });
+
+        // edit bash
+        editBashPrompt('skill1')
+    });
+    
 
 </script>
 </html>
