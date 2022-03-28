@@ -36,7 +36,7 @@
     <div class="background-img" id="main-background-img">
         <div class="background" id="background-color">
             <div class="text-holder" id="title-bar">
-                <h1 class="bash-text" id="my-name">MaxwellMolden@my-site:~/main $ <div id="blinking-text">|</div></h1>
+                <h1 class="bash-text" id="my-name">MaxwellMolden@my-site:~/software-skills $ <div id="blinking-text">|</div></h1>
             </div>
             <nav class="navbar navbar-expand navbar-custom" id="main-nav-bar">
                 <div class="container-fluid">
@@ -129,24 +129,7 @@
     <!-- END CONSISTENT CONTENT -->
 
 </body>
-<script>
-    // holds text to edit the bash prompt based on what current navbar tab you are on
-    var bash_prompt_text = {
-        "main" : 'MaxwellMolden@my-site:~/main $ <div id="blinking-text">|</div>',
-        "socials" : 'MaxwellMolden@my-site:~/socials $ <div id="blinking-text">|</div>',
-        "skill1" : 'MaxwellMolden@my-site:~/software-skills $ <div id="blinking-text">|</div>',
-        "skill2" : 'MaxwellMolden@my-site:~/skill2-skills $ <div id="blinking-text">|</div>',
-        "aboutme" : 'MaxwellMolden@my-site:~/about-me $ <div id="blinking-text">|</div>',
-    };
-
-    // edit bash prompt based on current nav bar tab selection
-    function editBashPrompt(template_id) {
-        // get current bashpromp text and reset it to be what is appropriate
-        var main_bash_prompt = document.getElementById("my-name");
-        main_bash_prompt.innerHTML = bash_prompt_text[template_id];        
-    };
-
-    
+<script>    
     $( document ).ready(function() {
         // jquery for accordions
         var icons = {
@@ -168,9 +151,6 @@
             collapsible: true,
             icons: icons,
         });
-
-        // edit bash
-        editBashPrompt('skill1')
     });
     
 
